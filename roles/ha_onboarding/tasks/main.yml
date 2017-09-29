@@ -1,7 +1,8 @@
 ---
-- include: bigip_license/license.yml 
-  vars:
-    - key: "{{ license_key }}"
+# Target is Ansible v2.5
+#- include: bigip_license/license.yml 
+#  vars:
+#    - key: "{{ license_key }}"
 
 - include: bigip_vlan/add_untagged_vlan.yml 
   vars:
@@ -25,7 +26,7 @@
     - vlan_name: "external"
     - route_domain: "0"
     - traffic_group: "traffic-group-1"
-  when: inventory_hostname != master
+  when: inventory_hostname == master
 
 - include: bigip_vlan/add_untagged_vlan.yml 
   vars: 
@@ -49,7 +50,7 @@
     - vlan_name: "internal"
     - route_domain: "0"
     - traffic_group: "traffic-group-1"
-  when: inventory_hostname != master
+  when: inventory_hostname == master
 
 - include: bigip_vlan/add_untagged_vlan.yml
   vars:

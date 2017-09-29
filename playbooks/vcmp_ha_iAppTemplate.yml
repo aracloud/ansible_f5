@@ -1,6 +1,6 @@
 ---
-  - hosts: bigip-ha
+  - hosts: vcmp-ha
     gather_facts: False
     roles:
-      - operations 
+      - iAppTemplate 
 ...

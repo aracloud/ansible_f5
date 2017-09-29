@@ -1,0 +1,17 @@
+---
+# bigd is one of the last daemon to get active
+- name: Check if services are available
+  bigip_command:
+    user: "{{ username }}"
+    password: "{{ password }}"
+    server: "{{ inventory_hostname }}"
+    commands:
+      - show sys service bigd
+    wait_for:
+      - result[0] contains "run"
+    match: all
+    interval: 2
+    retries: 60
+    validate_certs: "no"
+  delegate_to: localhost
+...

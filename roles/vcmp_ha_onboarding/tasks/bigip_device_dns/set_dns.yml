@@ -1,0 +1,12 @@
+---
+- name: Set the DNS settings 
+  bigip_device_dns:
+    user: "{{ username }}"
+    password: "{{ password }}"
+    server: "{{ inventory_hostname }}"
+    name_servers: "{{ name_server }}"
+    search: "{{ search_domain }}"
+    ip_version: "4"
+    validate_certs: "no"
+  delegate_to: localhost
+...
