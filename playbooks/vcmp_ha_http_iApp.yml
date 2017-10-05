@@ -15,14 +15,14 @@
 # - X-Forwarded-For header
 # - Default http monitor
 ---
-  - hosts: vcmp-ha
+  - hosts: vcmp_ha
     gather_facts: False
     roles:
       - iAppService
     vars:
-      - app_name: "http_app_22"
-      - vip: "172.29.82.69"
-      - vip_2: "2011:f5::10:128:10:22"
+      - app_name: "http_app_67"
+      - vip: "172.29.82.67"
+      - vip_2: "2011:f5::172:29:82:67"
       - members:
         -
           ip: "10.1.6.211"
