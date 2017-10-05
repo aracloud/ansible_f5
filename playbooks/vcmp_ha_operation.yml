@@ -2,5 +2,5 @@
   - hosts: vcmp_ha
     gather_facts: False
     roles:
-      - iAppTemplate 
+      - operations 
 ...

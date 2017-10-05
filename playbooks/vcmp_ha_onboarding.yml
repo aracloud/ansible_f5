@@ -1,5 +1,5 @@
 ---
-  - hosts: vcmp-ha
+  - hosts: vcmp_ha
     gather_facts: False
     roles:
       - vcmp_ha_onboarding 
