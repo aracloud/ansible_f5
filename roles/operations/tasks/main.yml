@@ -2,36 +2,36 @@
 ############
 #Add objects
 ############
-- include: bigip_node/add_node.yml 
+- import_tasks: bigip_node/add_node.yml 
   vars: 
     - host: "10.10.10.209" 
     - name: "member09" 
     - monitor: "/Common/icmp"
   when: state == "present"
 
-- include: bigip_pool/manage_pool.yml 
+- import_tasks: bigip_pool/manage_pool.yml 
   vars: 
     - name: "pool20"
     - monitor: "/Common/http_head_f5"
   when: state == "present"
 
-- include: bigip_pool_member/manage_members.yml 
+- import_tasks: bigip_pool_member/manage_members.yml 
   vars: 
     - host: "member09" 
     - pool: "pool20"
     - port: "80"
   when: state == "present"
 
-- include: bigip_irule/manage_irule.yml
+- import_tasks: bigip_irule/manage_irule.yml
   when: state == "present"
 
-- include: bigip_monitor_tcp/manage_tcp_monitor.yml
+- import_tasks: bigip_monitor_tcp/manage_tcp_monitor.yml
   when: state == "present"
 
-- include: bigip_monitor_http/manage_http_monitor.yml
+- import_tasks: bigip_monitor_http/manage_http_monitor.yml
   when: state == "present"
 
-- include: bigip_virtual_server/manage_vip.yml 
+- import_tasks: bigip_virtual_server/manage_vip.yml 
   vars:
     - description: "foo-vip" 
     - destination: "10.128.10.20" 
@@ -46,7 +46,7 @@
 ###############
 #Remove objects
 ###############
-- include: bigip_virtual_server/manage_vip.yml
+- import_tasks: bigip_virtual_server/manage_vip.yml
   vars:
     - description: "foo-vip" 
     - destination: "10.128.10.20" 
@@ -58,22 +58,22 @@
     - all_rules: "Bodgeit_Rewrite"
   when: state == "absent"
 
-- include: bigip_irule/manage_irule.yml
+- import_tasks: bigip_irule/manage_irule.yml
   when: state == "absent"
 
-- include: bigip_monitor_tcp/manage_tcp_monitor.yml
+- import_tasks: bigip_monitor_tcp/manage_tcp_monitor.yml
   when: state == "absent"
 
-- include: bigip_monitor_http/manage_http_monitor.yml
+- import_tasks: bigip_monitor_http/manage_http_monitor.yml
   when: state == "absent"
 
-- include: bigip_pool/manage_pool.yml 
+- import_tasks: bigip_pool/manage_pool.yml 
   vars: 
     - name: "pool20" 
     - monitor: "/Common/http_head_f5"
   when: state == "absent"
 
-- include: bigip_node/remove_node.yml 
+- import_tasks: bigip_node/remove_node.yml 
   vars:
     - name: "member20" 
     - monitor: "/Common/icmp"

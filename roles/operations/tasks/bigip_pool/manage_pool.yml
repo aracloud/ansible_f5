@@ -1,6 +1,6 @@
 ---
 - name: Manage a pool
-  _bigip_pool:
+  bigip_pool:
     server: "{{ inventory_hostname }}"
     user: "{{ username }}"
     password: "{{ password }}"
@@ -9,5 +9,6 @@
     state: "{{ state }}"
     monitors:
       - "{{ monitor }}"
+    monitor_type: "and_list"
   delegate_to: localhost
 ...
