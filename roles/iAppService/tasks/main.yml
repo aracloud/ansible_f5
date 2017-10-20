@@ -3,6 +3,6 @@
 # Add/Remove objects #
 ######################
 
-- include: bigip_iapp_service/appsvcs.yml
+- import_tasks: bigip_iapp_service/appsvcs.yml
 
 ...

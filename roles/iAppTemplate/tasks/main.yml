@@ -3,7 +3,7 @@
 # Add/Remove objects #
 ######################
 
-- include: bigip_iapp_template/appsvcs.yml
+- import_tasks: bigip_iapp_template/appsvcs.yml
   vars:
   - f5template: "appsvcs_integration_v2.0.004_waf"
 ...
