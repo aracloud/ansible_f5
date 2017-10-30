@@ -38,7 +38,7 @@
       - sorry: true 
       - monitor_request_path: "/index.php"
       - monitor_response: "PHPAUCTION"
-      - vip: "10.128.10.26" 
+      - vip: "192.168.40.185" 
       - members:
         -
           ip: "10.10.10.11"
